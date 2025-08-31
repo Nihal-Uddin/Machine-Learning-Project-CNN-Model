@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Domestic Animal Disease Detection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f2f6f8;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(90deg, #4CAF50, #2E7D32);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h4 {
+            text-align: center;
+            color: #555;
+            margin: 20px 0;
+            font-weight: 700;
+        }
+        form {
+            background: white;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        form:hover { transform: translateY(-3px); }
+        input[type="file"], button {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 6px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        button:hover { background: #388E3C; }
+
+        .animal-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 10px;
+        }
+        .animal-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .animal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        .animal-card h3 {
+            color: #2E7D32;
+            margin-bottom: 10px;
+        }
+        .animal-card p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        footer {
+            background: #2E2E2E;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+        @media (max-width: 600px) {
+            header { font-size: 28px; padding: 20px 10px; }
+            form { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Domestic Animal Disease Detection
+    </header>
+
+    <h4>**Upload an image to detect possible diseases in domestic animals**</h4>
+    
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Predict Disease</button>
+    </form>
+
+    <h4>Available Animals & Their Diseases</h4>
+    <div class="animal-info">
+        <div class="animal-card">
+            <h3>Cow</h3>
+            <p><strong>Diseases:</strong> FMD, Lumpy Skin, Mastitis, Healthy</p>
+        </div>
+        <div class="animal-card">
+            <h3>Dog</h3>
+            <p><strong>Diseases:</strong> Demodicosis, Dermatities, Fungal Infections, Hypersensitivity, Ringworm, Healthy</p>
+        </div>
+        <div class="animal-card">
+            <h3>Goat</h3>
+            <p><strong>Diseases:</strong> Healthy, Unhealthy</p>
+        </div>
+    </div>
+
+    <footer>
+        Developed for Veterinary Health Support & Animal Welfare © 2025
+    </footer>
+</body>
+</html>
